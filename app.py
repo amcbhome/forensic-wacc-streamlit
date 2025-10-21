@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import streamlit as st
 from wacc_module import calculate_wacc, solve_missing, format_percent
 
@@ -5,7 +6,7 @@ from wacc_module import calculate_wacc, solve_missing, format_percent
 # Streamlit page setup
 # ──────────────────────────────────────────────
 st.set_page_config(page_title="Forensic WACC Solver", layout="centered")
-st.title("🕵️‍♂️ Forensic WACC Solver")
+st.title("Forensic WACC Solver")
 st.caption("Back-solve missing inputs from the WACC formula — a teaching demo for forensic accounting.")
 
 # Display the formula
@@ -68,7 +69,7 @@ else:
                                  min_value=0.0, max_value=5.0,
                                  value=0.0923, step=0.0001, format="%f")
 
-    # Helper to handle conditional inputs
+    # Helper for conditional inputs
     def maybe_input(label, key, default, minv=0.0, maxv=5.0):
         if missing == key:
             st.text_input(label, value="(missing)", disabled=True)
@@ -99,3 +100,4 @@ else:
                 st.warning("Implied equity weight is outside [0,1]; inputs may be inconsistent.")
         except Exception as e:
             st.error(str(e))
+
