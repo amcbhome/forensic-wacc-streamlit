@@ -170,6 +170,7 @@ def solve_missing(*,
 # ──────────────────────────────────────────────
 # Display helper
 # ──────────────────────────────────────────────
-def format_percent(x: float, decimals: int = 2) -> str:
-    """Return a formatted percentage string."""
-    return f"{round(x * 100, decimals)}%"
+def format_percent(x: float, decimals: int = 6) -> str:
+    """Return a formatted percentage string with six decimal places."""
+    return f"{x * 100:.6f}%"
+
